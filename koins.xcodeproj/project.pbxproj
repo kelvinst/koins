@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA490E5324DDC5E20034712B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA490E5224DDC5E20034712B /* AppDelegate.swift */; };
+		AA490E5524DDC5E20034712B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA490E5424DDC5E20034712B /* SceneDelegate.swift */; };
+		AA490E5824DDC5E20034712B /* koins.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA490E5624DDC5E20034712B /* koins.xcdatamodeld */; };
+		AA490E5A24DDC5E20034712B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA490E5924DDC5E20034712B /* ContentView.swift */; };
+		AA490E5C24DDC5E30034712B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA490E5B24DDC5E30034712B /* Assets.xcassets */; };
+		AA490E5F24DDC5E30034712B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA490E5E24DDC5E30034712B /* Preview Assets.xcassets */; };
+		AA490E6224DDC5E30034712B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA490E6024DDC5E30034712B /* LaunchScreen.storyboard */; };
+		AA490E6D24DDC5E40034712B /* koinsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA490E6C24DDC5E40034712B /* koinsTests.swift */; };
+		AA490E7824DDC5E40034712B /* koinsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA490E7724DDC5E40034712B /* koinsUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AA490E6924DDC5E40034712B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA490E4724DDC5E10034712B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA490E4E24DDC5E10034712B;
+			remoteInfo = koins;
+		};
+		AA490E7424DDC5E40034712B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AA490E4724DDC5E10034712B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AA490E4E24DDC5E10034712B;
+			remoteInfo = koins;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AA490E4F24DDC5E20034712B /* koins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = koins.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA490E5224DDC5E20034712B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AA490E5424DDC5E20034712B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		AA490E5724DDC5E20034712B /* koins.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = koins.xcdatamodel; sourceTree = "<group>"; };
+		AA490E5924DDC5E20034712B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AA490E5B24DDC5E30034712B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA490E5E24DDC5E30034712B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AA490E6124DDC5E30034712B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AA490E6324DDC5E30034712B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA490E6824DDC5E40034712B /* koinsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = koinsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA490E6C24DDC5E40034712B /* koinsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = koinsTests.swift; sourceTree = "<group>"; };
+		AA490E6E24DDC5E40034712B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA490E7324DDC5E40034712B /* koinsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = koinsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA490E7724DDC5E40034712B /* koinsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = koinsUITests.swift; sourceTree = "<group>"; };
+		AA490E7924DDC5E40034712B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AA490E4C24DDC5E10034712B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA490E6524DDC5E40034712B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA490E7024DDC5E40034712B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AA490E4624DDC5E10034712B = {
+			isa = PBXGroup;
+			children = (
+				AA490E5124DDC5E20034712B /* koins */,
+				AA490E6B24DDC5E40034712B /* koinsTests */,
+				AA490E7624DDC5E40034712B /* koinsUITests */,
+				AA490E5024DDC5E20034712B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AA490E5024DDC5E20034712B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AA490E4F24DDC5E20034712B /* koins.app */,
+				AA490E6824DDC5E40034712B /* koinsTests.xctest */,
+				AA490E7324DDC5E40034712B /* koinsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AA490E5124DDC5E20034712B /* koins */ = {
+			isa = PBXGroup;
+			children = (
+				AA490E5224DDC5E20034712B /* AppDelegate.swift */,
+				AA490E5424DDC5E20034712B /* SceneDelegate.swift */,
+				AA490E5924DDC5E20034712B /* ContentView.swift */,
+				AA490E5B24DDC5E30034712B /* Assets.xcassets */,
+				AA490E6024DDC5E30034712B /* LaunchScreen.storyboard */,
+				AA490E6324DDC5E30034712B /* Info.plist */,
+				AA490E5624DDC5E20034712B /* koins.xcdatamodeld */,
+				AA490E5D24DDC5E30034712B /* Preview Content */,
+			);
+			path = koins;
+			sourceTree = "<group>";
+		};
+		AA490E5D24DDC5E30034712B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				AA490E5E24DDC5E30034712B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AA490E6B24DDC5E40034712B /* koinsTests */ = {
+			isa = PBXGroup;
+			children = (
+				AA490E6C24DDC5E40034712B /* koinsTests.swift */,
+				AA490E6E24DDC5E40034712B /* Info.plist */,
+			);
+			path = koinsTests;
+			sourceTree = "<group>";
+		};
+		AA490E7624DDC5E40034712B /* koinsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AA490E7724DDC5E40034712B /* koinsUITests.swift */,
+				AA490E7924DDC5E40034712B /* Info.plist */,
+			);
+			path = koinsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AA490E4E24DDC5E10034712B /* koins */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA490E7C24DDC5E40034712B /* Build configuration list for PBXNativeTarget "koins" */;
+			buildPhases = (
+				AA490E4B24DDC5E10034712B /* Sources */,
+				AA490E4C24DDC5E10034712B /* Frameworks */,
+				AA490E4D24DDC5E10034712B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = koins;
+			productName = koins;
+			productReference = AA490E4F24DDC5E20034712B /* koins.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AA490E6724DDC5E40034712B /* koinsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA490E7F24DDC5E40034712B /* Build configuration list for PBXNativeTarget "koinsTests" */;
+			buildPhases = (
+				AA490E6424DDC5E40034712B /* Sources */,
+				AA490E6524DDC5E40034712B /* Frameworks */,
+				AA490E6624DDC5E40034712B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA490E6A24DDC5E40034712B /* PBXTargetDependency */,
+			);
+			name = koinsTests;
+			productName = koinsTests;
+			productReference = AA490E6824DDC5E40034712B /* koinsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AA490E7224DDC5E40034712B /* koinsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA490E8224DDC5E40034712B /* Build configuration list for PBXNativeTarget "koinsUITests" */;
+			buildPhases = (
+				AA490E6F24DDC5E40034712B /* Sources */,
+				AA490E7024DDC5E40034712B /* Frameworks */,
+				AA490E7124DDC5E40034712B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AA490E7524DDC5E40034712B /* PBXTargetDependency */,
+			);
+			name = koinsUITests;
+			productName = koinsUITests;
+			productReference = AA490E7324DDC5E40034712B /* koinsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AA490E4724DDC5E10034712B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1160;
+				ORGANIZATIONNAME = "0K Software";
+				TargetAttributes = {
+					AA490E4E24DDC5E10034712B = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					AA490E6724DDC5E40034712B = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = AA490E4E24DDC5E10034712B;
+					};
+					AA490E7224DDC5E40034712B = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = AA490E4E24DDC5E10034712B;
+					};
+				};
+			};
+			buildConfigurationList = AA490E4A24DDC5E10034712B /* Build configuration list for PBXProject "koins" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AA490E4624DDC5E10034712B;
+			productRefGroup = AA490E5024DDC5E20034712B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AA490E4E24DDC5E10034712B /* koins */,
+				AA490E6724DDC5E40034712B /* koinsTests */,
+				AA490E7224DDC5E40034712B /* koinsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AA490E4D24DDC5E10034712B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA490E6224DDC5E30034712B /* LaunchScreen.storyboard in Resources */,
+				AA490E5F24DDC5E30034712B /* Preview Assets.xcassets in Resources */,
+				AA490E5C24DDC5E30034712B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA490E6624DDC5E40034712B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA490E7124DDC5E40034712B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AA490E4B24DDC5E10034712B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA490E5824DDC5E20034712B /* koins.xcdatamodeld in Sources */,
+				AA490E5324DDC5E20034712B /* AppDelegate.swift in Sources */,
+				AA490E5A24DDC5E20034712B /* ContentView.swift in Sources */,
+				AA490E5524DDC5E20034712B /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA490E6424DDC5E40034712B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA490E6D24DDC5E40034712B /* koinsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA490E6F24DDC5E40034712B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA490E7824DDC5E40034712B /* koinsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AA490E6A24DDC5E40034712B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA490E4E24DDC5E10034712B /* koins */;
+			targetProxy = AA490E6924DDC5E40034712B /* PBXContainerItemProxy */;
+		};
+		AA490E7524DDC5E40034712B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AA490E4E24DDC5E10034712B /* koins */;
+			targetProxy = AA490E7424DDC5E40034712B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AA490E6024DDC5E30034712B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AA490E6124DDC5E30034712B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AA490E7A24DDC5E40034712B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AA490E7B24DDC5E40034712B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AA490E7D24DDC5E40034712B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"koins/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = koins/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zerok.koins;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AA490E7E24DDC5E40034712B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"koins/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = koins/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zerok.koins;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AA490E8024DDC5E40034712B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = koinsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zerok.koinsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/koins.app/koins";
+			};
+			name = Debug;
+		};
+		AA490E8124DDC5E40034712B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = koinsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zerok.koinsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/koins.app/koins";
+			};
+			name = Release;
+		};
+		AA490E8324DDC5E40034712B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = koinsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zerok.koinsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = koins;
+			};
+			name = Debug;
+		};
+		AA490E8424DDC5E40034712B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = koinsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zerok.koinsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = koins;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AA490E4A24DDC5E10034712B /* Build configuration list for PBXProject "koins" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA490E7A24DDC5E40034712B /* Debug */,
+				AA490E7B24DDC5E40034712B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA490E7C24DDC5E40034712B /* Build configuration list for PBXNativeTarget "koins" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA490E7D24DDC5E40034712B /* Debug */,
+				AA490E7E24DDC5E40034712B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA490E7F24DDC5E40034712B /* Build configuration list for PBXNativeTarget "koinsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA490E8024DDC5E40034712B /* Debug */,
+				AA490E8124DDC5E40034712B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA490E8224DDC5E40034712B /* Build configuration list for PBXNativeTarget "koinsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AA490E8324DDC5E40034712B /* Debug */,
+				AA490E8424DDC5E40034712B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA490E5624DDC5E20034712B /* koins.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA490E5724DDC5E20034712B /* koins.xcdatamodel */,
+			);
+			currentVersion = AA490E5724DDC5E20034712B /* koins.xcdatamodel */;
+			path = koins.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = AA490E4724DDC5E10034712B /* Project object */;
+}
