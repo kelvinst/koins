@@ -45,8 +45,8 @@ defmodule KoinsWeb.TransactionLive.Index do
     Bank.list_transactions()
   end
 
-  @impl
+  @impl true
   def handle_info({:create, transaction}, socket) do
-    {:noreply, assign(socket, :transactions, [transaction | socket.assings.transactions])}
+    {:noreply, assign(socket, :transactions, [transaction | socket.assigns.transactions])}
   end
 end
