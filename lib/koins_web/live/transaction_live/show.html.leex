@@ -1,0 +1,27 @@
+<h1>Show Transaction</h1>
+
+<%= if @live_action in [:edit] do %>
+  <%= live_modal @socket, KoinsWeb.TransactionLive.FormComponent,
+    id: @transaction.id,
+    title: @page_title,
+    action: @live_action,
+    transaction: @transaction,
+    return_to: Routes.transaction_show_path(@socket, :show, @transaction) %>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Desc:</strong>
+    <%= @transaction.desc %>
+  </li>
+
+  <li>
+    <strong>Amount:</strong>
+    <%= @transaction.amount %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.transaction_show_path(@socket, :edit, @transaction), class: "button" %></span>
+<span><%= live_redirect "Back", to: Routes.transaction_index_path(@socket, :index) %></span>
