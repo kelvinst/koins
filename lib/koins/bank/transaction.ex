@@ -3,7 +3,7 @@ defmodule Koins.Bank.Transaction do
   import Ecto.Changeset
 
   schema "transactions" do
-    field :amount, :integer
+    field :amount, Money.Ecto.Amount.Type
     field :notes, :string
 
     timestamps()

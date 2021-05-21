@@ -11,7 +11,7 @@
   <%= error_tag f, :notes %>
 
   <%= label f, :amount %>
-  <%= number_input f, :amount %>
+  <%= text_input f, :amount, value: @changeset |> Ecto.Changeset.get_field(:amount) |> Money.to_string(symbol: false) %>
   <%= error_tag f, :amount %>
 
   <%= submit "Save", phx_disable_with: "Saving..." %>
