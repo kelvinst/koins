@@ -4,7 +4,7 @@ defmodule Koins.Bank.Transaction do
 
   schema "transactions" do
     field :amount, :integer
-    field :desc, :string
+    field :notes, :string
 
     timestamps()
   end
@@ -12,7 +12,7 @@ defmodule Koins.Bank.Transaction do
   @doc false
   def changeset(transaction, attrs) do
     transaction
-    |> cast(attrs, [:desc, :amount])
+    |> cast(attrs, [:notes, :amount])
     |> validate_required([:amount])
   end
 end

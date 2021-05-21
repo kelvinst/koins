@@ -5,9 +5,9 @@ defmodule KoinsWeb.TransactionLiveTest do
 
   alias Koins.Bank
 
-  @create_attrs %{amount: 42, desc: "some desc"}
-  @update_attrs %{amount: 43, desc: "some updated desc"}
-  @invalid_attrs %{amount: nil, desc: nil}
+  @create_attrs %{amount: 42, notes: "some notes"}
+  @update_attrs %{amount: 43, notes: "some updated notes"}
+  @invalid_attrs %{amount: nil, notes: nil}
 
   defp fixture(:transaction) do
     {:ok, transaction} = Bank.create_transaction(@create_attrs)
@@ -26,7 +26,7 @@ defmodule KoinsWeb.TransactionLiveTest do
       {:ok, _index_live, html} = live(conn, Routes.transaction_index_path(conn, :index))
 
       assert html =~ "Listing Transactions"
-      assert html =~ transaction.desc
+      assert html =~ transaction.notes
     end
 
     test "saves new transaction", %{conn: conn} do
@@ -48,7 +48,7 @@ defmodule KoinsWeb.TransactionLiveTest do
         |> follow_redirect(conn, Routes.transaction_index_path(conn, :index))
 
       assert html =~ "Transaction created successfully"
-      assert html =~ "some desc"
+      assert html =~ "some notes"
     end
 
     test "updates transaction in listing", %{conn: conn, transaction: transaction} do
@@ -70,7 +70,7 @@ defmodule KoinsWeb.TransactionLiveTest do
         |> follow_redirect(conn, Routes.transaction_index_path(conn, :index))
 
       assert html =~ "Transaction updated successfully"
-      assert html =~ "some updated desc"
+      assert html =~ "some updated notes"
     end
 
     test "deletes transaction in listing", %{conn: conn, transaction: transaction} do
@@ -88,7 +88,7 @@ defmodule KoinsWeb.TransactionLiveTest do
       {:ok, _show_live, html} = live(conn, Routes.transaction_show_path(conn, :show, transaction))
 
       assert html =~ "Show Transaction"
-      assert html =~ transaction.desc
+      assert html =~ transaction.notes
     end
 
     test "updates transaction within modal", %{conn: conn, transaction: transaction} do
@@ -110,7 +110,7 @@ defmodule KoinsWeb.TransactionLiveTest do
         |> follow_redirect(conn, Routes.transaction_show_path(conn, :show, transaction))
 
       assert html =~ "Transaction updated successfully"
-      assert html =~ "some updated desc"
+      assert html =~ "some updated notes"
     end
   end
 end

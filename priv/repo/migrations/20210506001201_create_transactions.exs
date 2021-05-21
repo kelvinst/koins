@@ -3,7 +3,7 @@ defmodule Koins.Repo.Migrations.CreateTransactions do
 
   def change do
     create table(:transactions) do
-      add :desc, :string
+      add :notes, :string
       add :amount, :integer
 
       timestamps()

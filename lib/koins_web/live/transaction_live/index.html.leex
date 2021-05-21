@@ -12,7 +12,7 @@
 <table>
   <thead>
     <tr>
-      <th>Desc</th>
+      <th>notes</th>
       <th>Amount</th>
 
       <th></th>
@@ -21,7 +21,7 @@
   <tbody id="transactions">
     <%= for transaction <- @transactions do %>
       <tr id="transaction-<%= transaction.id %>">
-        <td><%= transaction.desc %></td>
+        <td><%= transaction.notes %></td>
         <td><%= transaction.amount %></td>
 
         <td>
