@@ -7,7 +7,11 @@ defmodule KoinsWeb.TransactionLive.Index do
   @impl true
   def mount(_params, _session, socket) do
     Phoenix.PubSub.subscribe(Koins.PubSub, "transactions")
-    {:ok, assign(socket, :transactions, list_transactions())}
+
+    {:ok,
+     socket
+     |> assign(:transactions, list_transactions())
+     |> assign(:balance, balance())}
   end
 
   @impl true
@@ -41,12 +45,16 @@ defmodule KoinsWeb.TransactionLive.Index do
     {:noreply, assign(socket, :transactions, list_transactions())}
   end
 
+  @impl true
+  def handle_info({:create, transaction}, socket) do
+    {:noreply, assign(socket, :transactions, [transaction | socket.assigns.transactions])}
+  end
+
   defp list_transactions do
     Bank.list_transactions()
   end
 
-  @impl true
-  def handle_info({:create, transaction}, socket) do
-    {:noreply, assign(socket, :transactions, [transaction | socket.assigns.transactions])}
+  defp balance do
+    Bank.balance()
   end
 end

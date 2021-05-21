@@ -22,6 +22,20 @@ defmodule Koins.Bank do
   end
 
   @doc """
+  Returns the balance by suming all the transactions.
+
+  ## Examples
+
+      iex> balance()
+      %Money{amount: 0}
+  """
+  def balance do
+    Transaction
+    |> select([t], sum(t.amount))
+    |> Repo.one()
+  end
+
+  @doc """
   Gets a single transaction.
 
   Raises `Ecto.NoResultsError` if the Transaction does not exist.

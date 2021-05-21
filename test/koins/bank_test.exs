@@ -41,7 +41,10 @@ defmodule Koins.BankTest do
 
     test "update_transaction/2 with valid data updates the transaction" do
       transaction = transaction_fixture()
-      assert {:ok, %Transaction{} = transaction} = Bank.update_transaction(transaction, @update_attrs)
+
+      assert {:ok, %Transaction{} = transaction} =
+               Bank.update_transaction(transaction, @update_attrs)
+
       assert transaction.amount == 43
       assert transaction.notes == "some updated notes"
     end
