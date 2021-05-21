@@ -18,7 +18,9 @@ defmodule Koins.Bank do
 
   """
   def list_transactions do
-    Repo.all(Transaction)
+    Transaction
+    |> order_by(desc: :inserted_at)
+    |> Repo.all()
   end
 
   @doc """
@@ -64,10 +66,16 @@ defmodule Koins.Bank do
 
   """
   def create_transaction(attrs \\ %{}) do
+    with {:ok, transaction} <- do_create_transaction(attrs) do
+      broadcast(transaction, :created)
+      {:ok, transaction}
+    end
+  end
+
+  defp do_create_transaction(attrs) do
     %Transaction{}
     |> Transaction.changeset(attrs)
     |> Repo.insert()
-    |> broadcast(:create)
   end
 
   @doc """
@@ -83,6 +91,16 @@ defmodule Koins.Bank do
 
   """
   def update_transaction(%Transaction{} = transaction, attrs) do
+    with {:ok, updated} <- do_update_transaction(transaction, attrs) do
+      broadcast(transaction, :updated, %{
+        amount_delta: Money.subtract(updated.amount, transaction.amount)
+      })
+
+      {:ok, updated}
+    end
+  end
+
+  defp do_update_transaction(transaction, attrs) do
     transaction
     |> Transaction.changeset(attrs)
     |> Repo.update()
@@ -101,7 +119,10 @@ defmodule Koins.Bank do
 
   """
   def delete_transaction(%Transaction{} = transaction) do
-    Repo.delete(transaction)
+    with {:ok, transaction} <- Repo.delete(transaction) do
+      broadcast(transaction, :deleted)
+      {:ok, transaction}
+    end
   end
 
   @doc """
@@ -117,10 +138,7 @@ defmodule Koins.Bank do
     Transaction.changeset(transaction, attrs)
   end
 
-  defp broadcast({:ok, transaction}, action) do
-    Phoenix.PubSub.broadcast!(Koins.PubSub, "transactions", {action, transaction})
-    {:ok, transaction}
+  defp broadcast(transaction, action, extra_data \\ nil) do
+    Phoenix.PubSub.broadcast(Koins.PubSub, "transactions", {action, transaction, extra_data})
   end
-
-  defp broadcast(error, _), do: error
 end

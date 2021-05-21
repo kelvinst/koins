@@ -22,8 +22,8 @@ defmodule KoinsWeb.LiveHelpers do
   end
 
   def money_value(changeset, field) do
-    changeset 
-    |> Ecto.Changeset.get_field(field) 
+    changeset
+    |> Ecto.Changeset.get_field(field)
     |> money_value()
   end
 
