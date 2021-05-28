@@ -10,10 +10,21 @@ defmodule Koins.BrokerageTest do
     @update_attrs %{amount: 43, notes: "some updated notes"}
     @invalid_attrs %{amount: nil, notes: nil}
 
+    def put_assocs(default, attrs) do
+      account = account_fixture()
+
+      attrs
+      |> Enum.into(default)
+      |> Map.put(:account_id, account.id)
+    end
+
+    def valid_attrs(attrs \\ %{}), do: put_assocs(@valid_attrs, attrs)
+    def update_attrs(attrs \\ %{}), do: put_assocs(@update_attrs, attrs)
+
     def transaction_fixture(attrs \\ %{}) do
       {:ok, transaction} =
         attrs
-        |> Enum.into(@valid_attrs)
+        |> valid_attrs()
         |> Brokerage.create_transaction()
 
       transaction
@@ -30,8 +41,8 @@ defmodule Koins.BrokerageTest do
     end
 
     test "create_transaction/1 with valid data creates a transaction" do
-      assert {:ok, %Transaction{} = transaction} = Brokerage.create_transaction(@valid_attrs)
-      assert transaction.amount == 42
+      assert {:ok, %Transaction{} = transaction} = Brokerage.create_transaction(valid_attrs())
+      assert transaction.amount == Money.new(42)
       assert transaction.notes == "some notes"
     end
 
@@ -43,9 +54,9 @@ defmodule Koins.BrokerageTest do
       transaction = transaction_fixture()
 
       assert {:ok, %Transaction{} = transaction} =
-               Brokerage.update_transaction(transaction, @update_attrs)
+               Brokerage.update_transaction(transaction, update_attrs())
 
-      assert transaction.amount == 43
+      assert transaction.amount == Money.new(43)
       assert transaction.notes == "some updated notes"
     end
 
