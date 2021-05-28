@@ -68,7 +68,7 @@ defmodule KoinsWeb.TransactionLive.Index do
   end
 
   defp list_transactions do
-    Brokerage.list_transactions()
+    Brokerage.list_transactions(preload: [:account])
   end
 
   defp balance do

@@ -17,10 +17,19 @@ defmodule Koins.Brokerage do
       [%Transaction{}, ...]
 
   """
-  def list_transactions do
+  def list_transactions(opts \\ []) do
     Transaction
+    |> build_transactions_query(opts)
     |> order_by(desc: :inserted_at)
     |> Repo.all()
+  end
+
+  defp build_transactions_query(q, []), do: q
+
+  defp build_transactions_query(q, [{:preload, value} | rest]) do
+    q
+    |> preload(^value)
+    |> build_transactions_query(rest)
   end
 
   @doc """
