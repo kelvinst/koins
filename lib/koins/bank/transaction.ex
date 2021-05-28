@@ -1,4 +1,4 @@
-defmodule Koins.Bank.Transaction do
+defmodule Koins.Brokerage.Transaction do
   use Ecto.Schema
   import Ecto.Changeset
 
