@@ -1,12 +1,12 @@
-defmodule Koins.Bank do
+defmodule Koins.Brokerage do
   @moduledoc """
-  The Bank context.
+  The Brokerage context.
   """
 
   import Ecto.Query, warn: false
   alias Koins.Repo
 
-  alias Koins.Bank.Transaction
+  alias Koins.Brokerage.Transaction
 
   @doc """
   Returns the list of transactions.

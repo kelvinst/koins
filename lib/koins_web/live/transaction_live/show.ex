@@ -1,7 +1,7 @@
 defmodule KoinsWeb.TransactionLive.Show do
   use KoinsWeb, :live_view
 
-  alias Koins.Bank
+  alias Koins.Brokerage
 
   @impl true
   def mount(_params, _session, socket) do
@@ -13,7 +13,7 @@ defmodule KoinsWeb.TransactionLive.Show do
     {:noreply,
      socket
      |> assign(:page_title, page_title(socket.assigns.live_action))
-     |> assign(:transaction, Bank.get_transaction!(id))}
+     |> assign(:transaction, Brokerage.get_transaction!(id))}
   end
 
   defp page_title(:show), do: "Show Transaction"

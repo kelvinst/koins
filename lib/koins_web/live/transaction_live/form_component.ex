@@ -1,11 +1,11 @@
 defmodule KoinsWeb.TransactionLive.FormComponent do
   use KoinsWeb, :live_component
 
-  alias Koins.Bank
+  alias Koins.Brokerage
 
   @impl true
   def update(%{transaction: transaction} = assigns, socket) do
-    changeset = Bank.change_transaction(transaction)
+    changeset = Brokerage.change_transaction(transaction)
 
     {:ok,
      socket
@@ -17,7 +17,7 @@ defmodule KoinsWeb.TransactionLive.FormComponent do
   def handle_event("validate", %{"transaction" => transaction_params}, socket) do
     changeset =
       socket.assigns.transaction
-      |> Bank.change_transaction(transaction_params)
+      |> Brokerage.change_transaction(transaction_params)
       |> Map.put(:action, :validate)
 
     {:noreply, assign(socket, :changeset, changeset)}
@@ -28,7 +28,7 @@ defmodule KoinsWeb.TransactionLive.FormComponent do
   end
 
   defp save_transaction(socket, :edit, transaction_params) do
-    case Bank.update_transaction(socket.assigns.transaction, transaction_params) do
+    case Brokerage.update_transaction(socket.assigns.transaction, transaction_params) do
       {:ok, _transaction} ->
         {:noreply,
          socket
@@ -41,7 +41,7 @@ defmodule KoinsWeb.TransactionLive.FormComponent do
   end
 
   defp save_transaction(socket, :new, transaction_params) do
-    case Bank.create_transaction(transaction_params) do
+    case Brokerage.create_transaction(transaction_params) do
       {:ok, _transaction} ->
         {:noreply,
          socket

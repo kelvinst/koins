@@ -3,14 +3,14 @@ defmodule KoinsWeb.TransactionLiveTest do
 
   import Phoenix.LiveViewTest
 
-  alias Koins.Bank
+  alias Koins.Brokerage
 
   @create_attrs %{amount: 42, notes: "some notes"}
   @update_attrs %{amount: 43, notes: "some updated notes"}
   @invalid_attrs %{amount: nil, notes: nil}
 
   defp fixture(:transaction) do
-    {:ok, transaction} = Bank.create_transaction(@create_attrs)
+    {:ok, transaction} = Brokerage.create_transaction(@create_attrs)
     transaction
   end
 
