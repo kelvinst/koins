@@ -51,7 +51,10 @@ defmodule Koins.BrokerageTest do
 
     test "update_transaction/2 with invalid data returns error changeset" do
       transaction = transaction_fixture()
-      assert {:error, %Ecto.Changeset{}} = Brokerage.update_transaction(transaction, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Brokerage.update_transaction(transaction, @invalid_attrs)
+
       assert transaction == Brokerage.get_transaction!(transaction.id)
     end
 

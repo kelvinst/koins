@@ -6,6 +6,10 @@
   phx_change: "validate",
   phx_submit: "save" %>
 
+  <%= label f, :account_id %>
+  <%= select f, :account_id, @account_options %>
+  <%= error_tag f, :account_id %>
+
   <%= label f, :notes %>
   <%= text_input f, :notes %>
   <%= error_tag f, :notes %>

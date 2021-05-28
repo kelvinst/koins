@@ -153,8 +153,18 @@ defmodule Koins.Brokerage do
       [%Account{}, ...]
 
   """
-  def list_accounts do
-    Repo.all(Account)
+  def list_accounts(opts \\ []) do
+    Account
+    |> build_accounts_query(opts)
+    |> Repo.all()
+  end
+
+  defp build_accounts_query(q, []), do: q
+
+  defp build_accounts_query(q, [{:select, :for_options} | rest]) do
+    q
+    |> select([a], {a.name, a.id})
+    |> build_accounts_query(rest)
   end
 
   @doc """
