@@ -1,4 +1,4 @@
-<h1>Listing Transactions</h1>
+<h1>Listing Transactions - <%= @balance %></h1>
 
 <%= if @live_action in [:new, :edit] do %>
   <%= live_modal @socket, KoinsWeb.TransactionLive.FormComponent,
@@ -12,7 +12,7 @@
 <table>
   <thead>
     <tr>
-      <th>Desc</th>
+      <th>Notes</th>
       <th>Amount</th>
 
       <th></th>
@@ -21,7 +21,7 @@
   <tbody id="transactions">
     <%= for transaction <- @transactions do %>
       <tr id="transaction-<%= transaction.id %>">
-        <td><%= transaction.desc %></td>
+        <td><%= transaction.notes %></td>
         <td><%= transaction.amount %></td>
 
         <td>

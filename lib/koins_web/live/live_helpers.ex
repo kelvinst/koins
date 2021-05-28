@@ -20,4 +20,13 @@ defmodule KoinsWeb.LiveHelpers do
     modal_opts = [id: :modal, return_to: path, component: component, opts: opts]
     live_component(socket, KoinsWeb.ModalComponent, modal_opts)
   end
+
+  def money_value(changeset, field) do
+    changeset
+    |> Ecto.Changeset.get_field(field)
+    |> money_value()
+  end
+
+  defp money_value(nil), do: nil
+  defp money_value(value), do: Money.to_string(value, symbol: false)
 end

@@ -6,9 +6,9 @@ defmodule Koins.BankTest do
   describe "transactions" do
     alias Koins.Bank.Transaction
 
-    @valid_attrs %{amount: 42, desc: "some desc"}
-    @update_attrs %{amount: 43, desc: "some updated desc"}
-    @invalid_attrs %{amount: nil, desc: nil}
+    @valid_attrs %{amount: 42, notes: "some notes"}
+    @update_attrs %{amount: 43, notes: "some updated notes"}
+    @invalid_attrs %{amount: nil, notes: nil}
 
     def transaction_fixture(attrs \\ %{}) do
       {:ok, transaction} =
@@ -32,7 +32,7 @@ defmodule Koins.BankTest do
     test "create_transaction/1 with valid data creates a transaction" do
       assert {:ok, %Transaction{} = transaction} = Bank.create_transaction(@valid_attrs)
       assert transaction.amount == 42
-      assert transaction.desc == "some desc"
+      assert transaction.notes == "some notes"
     end
 
     test "create_transaction/1 with invalid data returns error changeset" do
@@ -41,9 +41,12 @@ defmodule Koins.BankTest do
 
     test "update_transaction/2 with valid data updates the transaction" do
       transaction = transaction_fixture()
-      assert {:ok, %Transaction{} = transaction} = Bank.update_transaction(transaction, @update_attrs)
+
+      assert {:ok, %Transaction{} = transaction} =
+               Bank.update_transaction(transaction, @update_attrs)
+
       assert transaction.amount == 43
-      assert transaction.desc == "some updated desc"
+      assert transaction.notes == "some updated notes"
     end
 
     test "update_transaction/2 with invalid data returns error changeset" do

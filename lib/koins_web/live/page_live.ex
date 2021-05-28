@@ -30,9 +30,9 @@ defmodule KoinsWeb.PageLive do
       raise "action disabled when not in development"
     end
 
-    for {app, desc, vsn} <- Application.started_applications(),
+    for {app, notes, vsn} <- Application.started_applications(),
         app = to_string(app),
-        String.starts_with?(app, query) and not List.starts_with?(desc, ~c"ERTS"),
+        String.starts_with?(app, query) and not List.starts_with?(notes, ~c"ERTS"),
         into: %{},
         do: {app, vsn}
   end

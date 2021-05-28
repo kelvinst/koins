@@ -6,12 +6,12 @@
   phx_change: "validate",
   phx_submit: "save" %>
 
-  <%= label f, :desc %>
-  <%= text_input f, :desc %>
-  <%= error_tag f, :desc %>
+  <%= label f, :notes %>
+  <%= text_input f, :notes %>
+  <%= error_tag f, :notes %>
 
   <%= label f, :amount %>
-  <%= number_input f, :amount %>
+  <%= text_input f, :amount, value: money_value(@changeset, :amount)  %>
   <%= error_tag f, :amount %>
 
   <%= submit "Save", phx_disable_with: "Saving..." %>
