@@ -13,6 +13,7 @@
   <thead>
     <tr>
       <th>Account</th>
+      <th>Date</th>
       <th>Notes</th>
       <th>Amount</th>
 
@@ -23,6 +24,7 @@
     <%= for transaction <- @transactions do %>
       <tr id="transaction-<%= transaction.id %>">
         <td><%= transaction.account.name %></td>
+        <td><%= transaction.date %></td>
         <td><%= transaction.notes %></td>
         <td><%= transaction.amount %></td>
 
