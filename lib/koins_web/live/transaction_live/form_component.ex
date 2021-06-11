@@ -5,11 +5,13 @@ defmodule KoinsWeb.TransactionLive.FormComponent do
 
   @impl true
   def update(%{transaction: transaction} = assigns, socket) do
+    account_options = Brokerage.list_accounts(select: :for_options)
     changeset = Brokerage.change_transaction(transaction)
 
     {:ok,
      socket
      |> assign(assigns)
+     |> assign(:account_options, account_options)
      |> assign(:changeset, changeset)}
   end
 

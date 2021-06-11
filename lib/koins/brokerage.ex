@@ -17,10 +17,18 @@ defmodule Koins.Brokerage do
       [%Transaction{}, ...]
 
   """
-  def list_transactions do
+  def list_transactions(opts \\ []) do
     Transaction
-    |> order_by(desc: :inserted_at)
+    |> build_transactions_query(opts)
     |> Repo.all()
+  end
+
+  defp build_transactions_query(q, []), do: order_by(q, desc: :inserted_at)
+
+  defp build_transactions_query(q, [{:preload, value} | rest]) do
+    q
+    |> preload(^value)
+    |> build_transactions_query(rest)
   end
 
   @doc """
@@ -30,6 +38,7 @@ defmodule Koins.Brokerage do
 
       iex> balance()
       %Money{amount: 0}
+
   """
   def balance do
     Transaction
@@ -51,7 +60,11 @@ defmodule Koins.Brokerage do
       ** (Ecto.NoResultsError)
 
   """
-  def get_transaction!(id), do: Repo.get!(Transaction, id)
+  def get_transaction!(id, opts \\ []) do 
+    Transaction
+    |> build_transactions_query(opts)
+    |> Repo.get!(id)
+  end
 
   @doc """
   Creates a transaction.
@@ -140,5 +153,129 @@ defmodule Koins.Brokerage do
 
   defp broadcast(transaction, action, extra_data \\ nil) do
     Phoenix.PubSub.broadcast(Koins.PubSub, "transactions", {action, transaction, extra_data})
+  end
+
+  alias Koins.Brokerage.Account
+
+  @doc """
+  Returns the list of accounts.
+
+  ## Examples
+
+      iex> list_accounts()
+      [%Account{}, ...]
+
+  """
+  def list_accounts(opts \\ []) do
+    Account
+    |> build_accounts_query(opts)
+    |> Repo.all()
+  end
+
+  defp build_accounts_query(q, []), do: q
+
+  defp build_accounts_query(q, [{:select, :for_options} | rest]) do
+    q
+    |> select([a], {a.name, a.id})
+    |> build_accounts_query(rest)
+  end
+
+  @doc """
+  Returns a list of accounts that match the `query_str`
+
+  ## Examples
+  
+      iex> search_account("ca")
+      %Account{name: "Cash"}
+
+  """
+  def search_account(query_str, opts \\ []) do
+    query_str = "#{query_str}%"
+
+    Account
+    |> build_accounts_query(opts)
+    |> where([a], ilike(a.name, ^query_str))
+    |> Repo.all()
+  end
+
+  @doc """
+  Gets a single account.
+
+  Raises `Ecto.NoResultsError` if the Account does not exist.
+
+  ## Examples
+
+      iex> get_account!(123)
+      %Account{}
+
+      iex> get_account!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_account!(id), do: Repo.get!(Account, id)
+
+  @doc """
+  Creates a account.
+
+  ## Examples
+
+      iex> create_account(%{field: value})
+      {:ok, %Account{}}
+
+      iex> create_account(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_account(attrs \\ %{}) do
+    %Account{}
+    |> Account.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a account.
+
+  ## Examples
+
+      iex> update_account(account, %{field: new_value})
+      {:ok, %Account{}}
+
+      iex> update_account(account, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_account(%Account{} = account, attrs) do
+    account
+    |> Account.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a account.
+
+  ## Examples
+
+      iex> delete_account(account)
+      {:ok, %Account{}}
+
+      iex> delete_account(account)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_account(%Account{} = account) do
+    Repo.delete(account)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking account changes.
+
+  ## Examples
+
+      iex> change_account(account)
+      %Ecto.Changeset{data: %Account{}}
+
+  """
+  def change_account(%Account{} = account, attrs \\ %{}) do
+    Account.changeset(account, attrs)
   end
 end

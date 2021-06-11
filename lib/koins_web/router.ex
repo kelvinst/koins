@@ -25,6 +25,13 @@ defmodule KoinsWeb.Router do
 
     live "/transactions/:id", TransactionLive.Show, :show
     live "/transactions/:id/show/edit", TransactionLive.Show, :edit
+
+    live "/accounts", AccountLive.Index, :index
+    live "/accounts/new", AccountLive.Index, :new
+    live "/accounts/:id/edit", AccountLive.Index, :edit
+
+    live "/accounts/:id", AccountLive.Show, :show
+    live "/accounts/:id/show/edit", AccountLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.

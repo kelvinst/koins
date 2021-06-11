@@ -53,7 +53,7 @@ defmodule KoinsWeb.TransactionLive.Index do
      |> update(:balance, fn balance -> Money.add(balance, transaction.balance) end)}
   end
 
-  def handle_info({:updated, transaction, %{amount_delta: delta}}, socket) do
+  def handle_info({:updated, _transaction, %{amount_delta: delta}}, socket) do
     {:noreply,
      socket
      |> assign(:transactions, list_transactions())
@@ -63,12 +63,12 @@ defmodule KoinsWeb.TransactionLive.Index do
   def handle_info({:deleted, transaction, _}, socket) do
     {:noreply,
      socket
-     |> update(:transactions, list_transactions())
+     |> assign(:transactions, list_transactions())
      |> update(:balance, fn balance -> Money.subtract(balance, transaction.amount) end)}
   end
 
   defp list_transactions do
-    Brokerage.list_transactions()
+    Brokerage.list_transactions(preload: [:account])
   end
 
   defp balance do
