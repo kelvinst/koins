@@ -20,11 +20,10 @@ defmodule Koins.Brokerage do
   def list_transactions(opts \\ []) do
     Transaction
     |> build_transactions_query(opts)
-    |> order_by(desc: :inserted_at)
     |> Repo.all()
   end
 
-  defp build_transactions_query(q, []), do: q
+  defp build_transactions_query(q, []), do: order_by(q, desc: :inserted_at)
 
   defp build_transactions_query(q, [{:preload, value} | rest]) do
     q
@@ -39,6 +38,7 @@ defmodule Koins.Brokerage do
 
       iex> balance()
       %Money{amount: 0}
+
   """
   def balance do
     Transaction
@@ -60,7 +60,11 @@ defmodule Koins.Brokerage do
       ** (Ecto.NoResultsError)
 
   """
-  def get_transaction!(id), do: Repo.get!(Transaction, id)
+  def get_transaction!(id, opts \\ []) do 
+    Transaction
+    |> build_transactions_query(opts)
+    |> Repo.get!(id)
+  end
 
   @doc """
   Creates a transaction.
@@ -174,6 +178,24 @@ defmodule Koins.Brokerage do
     q
     |> select([a], {a.name, a.id})
     |> build_accounts_query(rest)
+  end
+
+  @doc """
+  Returns a list of accounts that match the `query_str`
+
+  ## Examples
+  
+      iex> search_account("ca")
+      %Account{name: "Cash"}
+
+  """
+  def search_account(query_str, opts \\ []) do
+    query_str = "#{query_str}%"
+
+    Account
+    |> build_accounts_query(opts)
+    |> where([a], ilike(a.name, ^query_str))
+    |> Repo.all()
   end
 
   @doc """
