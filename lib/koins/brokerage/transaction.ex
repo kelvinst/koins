@@ -3,6 +3,7 @@ defmodule Koins.Brokerage.Transaction do
   import Ecto.Changeset
 
   schema "transactions" do
+    field :date, :date, default: Date.utc_today()
     field :amount, Money.Ecto.Amount.Type
     field :notes, :string
 
@@ -14,7 +15,7 @@ defmodule Koins.Brokerage.Transaction do
   @doc false
   def changeset(transaction, attrs) do
     transaction
-    |> cast(attrs, [:account_id, :notes, :amount])
-    |> validate_required([:account_id, :amount])
+    |> cast(attrs, [:account_id, :date, :notes, :amount])
+    |> validate_required([:account_id, :date, :amount])
   end
 end

@@ -10,6 +10,10 @@
   <%= select f, :account_id, @account_options %>
   <%= error_tag f, :account_id %>
 
+  <%= label f, :date %>
+  <%= date_input f, :date %>
+  <%= error_tag f, :date %>
+
   <%= label f, :notes %>
   <%= text_input f, :notes %>
   <%= error_tag f, :notes %>
