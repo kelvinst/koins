@@ -1,5 +1,9 @@
 defmodule KoinsWeb.Router do
-  use KoinsWeb, :router
+  use Phoenix.Router
+
+  import Plug.Conn
+  import Phoenix.Controller
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]

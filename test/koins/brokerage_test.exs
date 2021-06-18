@@ -47,7 +47,8 @@ defmodule Koins.BrokerageTest do
     end
 
     test "create_transaction/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = Brokerage.create_transaction(@invalid_attrs)
+      assert {:error, %Ecto.Changeset{} = cs} = Brokerage.create_transaction(@invalid_attrs)
+      assert errors_on(cs) == %{account_id: ["can't be blank"], amount: ["can't be blank"]}
     end
 
     test "update_transaction/2 with valid data updates the transaction" do
@@ -137,6 +138,16 @@ defmodule Koins.BrokerageTest do
     test "change_account/1 returns a account changeset" do
       account = account_fixture()
       assert %Ecto.Changeset{} = Brokerage.change_account(account)
+    end
+
+    test "search_account/2 returns a list of accounts that start with the given query string" do
+      a1 = account_fixture(name: "Bank")
+      a2 = account_fixture(name: "Cash")
+      a3 = account_fixture(name: "Bash")
+
+      assert Brokerage.search_account("Ban") == [a1]
+      assert Brokerage.search_account("Ba") == [a1, a3]
+      assert Brokerage.search_account("Ca") == [a2]
     end
   end
 end
