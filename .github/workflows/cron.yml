@@ -1,15 +1,12 @@
-name: Pull-Request CI
+name: Scheduled CI
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  schedule:
+    - cron: "0 12 * * *"
 
 jobs:
-  build:
-
-    name: Build and test
+  muzak:
+    name: Build and run mutation tests
     runs-on: ubuntu-latest
 
     services:
@@ -40,5 +37,6 @@ jobs:
         restore-keys: ${{ runner.os }}-mix-
     - name: Install dependencies
       run: mix deps.get
-    - name: Run tests (and coverage)
-      run: mix test --cover
+    - name: Run muzak
+      run: mix muzak
+
