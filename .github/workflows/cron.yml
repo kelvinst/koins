@@ -39,4 +39,5 @@ jobs:
       run: mix deps.get
     - name: Run muzak
       run: mix muzak
-
+      env:
+        POSTGRES_HOST: postgres

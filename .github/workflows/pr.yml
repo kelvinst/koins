@@ -42,3 +42,5 @@ jobs:
       run: mix deps.get
     - name: Run tests (and coverage)
       run: mix test --cover
+      env:
+        POSTGRES_HOST: postgres
