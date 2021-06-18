@@ -15,7 +15,7 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: my_app_test
+          POSTGRES_DB: koins_test
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
