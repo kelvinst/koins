@@ -60,7 +60,7 @@ defmodule Koins.Brokerage do
       ** (Ecto.NoResultsError)
 
   """
-  def get_transaction!(id, opts \\ []) do 
+  def get_transaction!(id, opts \\ []) do
     Transaction
     |> build_transactions_query(opts)
     |> Repo.get!(id)
@@ -184,7 +184,7 @@ defmodule Koins.Brokerage do
   Returns a list of accounts that match the `query_str`
 
   ## Examples
-  
+
       iex> search_account("ca")
       %Account{name: "Cash"}
 
