@@ -51,7 +51,8 @@ defmodule Koins.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:money, "~> 1.4"},
       {:muzak, "~> 1.1", only: :test},
-      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
     ]
   end
 
