@@ -78,7 +78,7 @@ defmodule Koins.Brokerage do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_transaction(attrs \\ %{}) do
+  def create_transaction(attrs) do
     with {:ok, transaction} <- do_create_transaction(attrs) do
       broadcast(transaction, :created)
       {:ok, transaction}
@@ -226,7 +226,7 @@ defmodule Koins.Brokerage do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_account(attrs \\ %{}) do
+  def create_account(attrs) do
     %Account{}
     |> Account.changeset(attrs)
     |> Repo.insert()

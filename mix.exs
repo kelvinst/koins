@@ -10,7 +10,9 @@ defmodule Koins.MixProject do
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+      preferred_cli_env: [muzak: :test],
+      test_coverage: [summary: [threshold: 80]]
     ]
   end
 
@@ -47,7 +49,8 @@ defmodule Koins.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:money, "~> 1.4"}
+      {:money, "~> 1.4"},
+      {:muzak, "~> 1.1", only: :test}
     ]
   end
 
