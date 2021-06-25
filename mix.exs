@@ -12,7 +12,15 @@ defmodule Koins.MixProject do
       aliases: aliases(),
       deps: deps(),
       preferred_cli_env: [muzak: :test],
-      test_coverage: [summary: [threshold: 80]]
+      test_coverage: [summary: [threshold: 80]],
+      dialyzer: dialyzer()
+    ]
+  end
+
+  defp dialyzer do
+    [
+      plt_core_path: "priv/plts",
+      plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
     ]
   end
 
