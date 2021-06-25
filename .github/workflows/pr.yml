@@ -46,5 +46,13 @@ jobs:
       run: mix format --check-formatted --dry-run
     - name: Run credo
       run: mix credo
+    - name: Restore PLTs cache
+      uses: actions/cache@v2
+      with:
+        path: priv/plts
+        key: ${{ runner.os }}-dialyzer-${{ hashFiles('**/mix.lock') }}
+        restore-keys: ${{ runner.os }}-dialyzer-
+    - name: Run dialyzer
+      run: mix dialyzer
     - name: Run tests (and coverage)
       run: mix test --cover
