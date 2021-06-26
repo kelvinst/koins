@@ -22,7 +22,7 @@ defmodule KoinsWeb.ModalComponent do
   end
 
   @impl true
-  def handle_event("close", _, socket) do
+  def handle_event("close", _params, socket) do
     {:noreply, push_patch(socket, to: socket.assigns.return_to)}
   end
 end

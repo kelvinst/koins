@@ -19,7 +19,7 @@ defmodule KoinsWeb.PageLive do
       %{^query => vsn} ->
         {:noreply, redirect(socket, external: "https://hexdocs.pm/#{query}/#{vsn}")}
 
-      _ ->
+      _not_found ->
         {:noreply,
          socket
          |> put_flash(:error, "No dependencies found matching \"#{query}\"")

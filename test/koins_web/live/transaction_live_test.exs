@@ -22,7 +22,7 @@ defmodule KoinsWeb.TransactionLiveTest do
     transaction
   end
 
-  defp create_transaction(_) do
+  defp create_transaction(_tags) do
     {:ok, account} = Brokerage.create_account(%{name: "name"})
     transaction = fixture(:transaction, account)
     %{account: account, transaction: transaction}
