@@ -1,4 +1,6 @@
 defmodule KoinsWeb.TransactionLive.FormComponent do
+  @moduledoc false
+
   use KoinsWeb, :live_component
 
   alias Koins.Brokerage

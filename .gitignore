@@ -34,3 +34,4 @@ npm-debug.log
 /priv/static/
 
 /priv/plts/*.plt
+/priv/plts/*.plt.hash

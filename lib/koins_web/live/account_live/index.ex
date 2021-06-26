@@ -1,4 +1,6 @@
 defmodule KoinsWeb.AccountLive.Index do
+  @moduledoc false
+
   use KoinsWeb, :live_view
 
   alias Koins.Brokerage

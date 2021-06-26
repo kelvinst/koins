@@ -17,6 +17,8 @@ defmodule Koins.Brokerage do
       [%Transaction{}, ...]
 
   """
+  @spec list_transactions() :: [Transaction.t()]
+  @spec list_transactions(Keyword.t()) :: [Transaction.t()]
   def list_transactions(opts \\ []) do
     Transaction
     |> build_transactions_query(opts)
@@ -40,6 +42,7 @@ defmodule Koins.Brokerage do
       %Money{amount: 0}
 
   """
+  @spec balance() :: Money.t()
   def balance do
     Transaction
     |> select([t], sum(t.amount))
@@ -60,6 +63,8 @@ defmodule Koins.Brokerage do
       ** (Ecto.NoResultsError)
 
   """
+  @spec get_transaction!(integer()) :: Transaction.t()
+  @spec get_transaction!(integer(), Keyword.t()) :: Transaction.t()
   def get_transaction!(id, opts \\ []) do
     Transaction
     |> build_transactions_query(opts)
@@ -78,6 +83,7 @@ defmodule Koins.Brokerage do
       {:error, %Ecto.Changeset{}}
 
   """
+  @spec create_transaction(map()) :: {:ok, Transaction.t()} | {:error, Ecto.Changeset.t()}
   def create_transaction(attrs) do
     with {:ok, transaction} <- do_create_transaction(attrs) do
       broadcast(transaction, :created)
@@ -103,6 +109,8 @@ defmodule Koins.Brokerage do
       {:error, %Ecto.Changeset{}}
 
   """
+  @spec update_transaction(Transaction.t(), map()) ::
+          {:ok, Transaction.t()} | {:error, Ecto.Changeset.t()}
   def update_transaction(%Transaction{} = transaction, attrs) do
     with {:ok, updated} <- do_update_transaction(transaction, attrs) do
       broadcast(transaction, :updated, %{
@@ -131,6 +139,7 @@ defmodule Koins.Brokerage do
       {:error, %Ecto.Changeset{}}
 
   """
+  @spec delete_transaction(Transaction.t()) :: {:ok, Transaction.t()}
   def delete_transaction(%Transaction{} = transaction) do
     with {:ok, transaction} <- Repo.delete(transaction) do
       broadcast(transaction, :deleted)
@@ -147,6 +156,8 @@ defmodule Koins.Brokerage do
       %Ecto.Changeset{data: %Transaction{}}
 
   """
+  @spec change_transaction(Transaction.t()) :: Ecto.Changeset.t()
+  @spec change_transaction(Transaction.t(), map()) :: Ecto.Changeset.t()
   def change_transaction(%Transaction{} = transaction, attrs \\ %{}) do
     Transaction.changeset(transaction, attrs)
   end
@@ -166,6 +177,8 @@ defmodule Koins.Brokerage do
       [%Account{}, ...]
 
   """
+  @spec list_accounts() :: [Account.t()]
+  @spec list_accounts(Keyword.t()) :: [Account.t()]
   def list_accounts(opts \\ []) do
     Account
     |> build_accounts_query(opts)
@@ -189,6 +202,8 @@ defmodule Koins.Brokerage do
       %Account{name: "Cash"}
 
   """
+  @spec search_account(String.t()) :: [Account.t()]
+  @spec search_account(String.t(), Keyword.t()) :: [Account.t()]
   def search_account(query_str, opts \\ []) do
     query_str = "#{query_str}%"
 
@@ -212,6 +227,7 @@ defmodule Koins.Brokerage do
       ** (Ecto.NoResultsError)
 
   """
+  @spec get_account!(integer()) :: Account.t()
   def get_account!(id), do: Repo.get!(Account, id)
 
   @doc """
@@ -226,6 +242,7 @@ defmodule Koins.Brokerage do
       {:error, %Ecto.Changeset{}}
 
   """
+  @spec create_account(map()) :: {:ok, Account.t()} | {:error, Ecto.Changeset.t()}
   def create_account(attrs) do
     %Account{}
     |> Account.changeset(attrs)
@@ -244,6 +261,7 @@ defmodule Koins.Brokerage do
       {:error, %Ecto.Changeset{}}
 
   """
+  @spec update_account(Account.t(), map()) :: {:ok, Account.t()} | {:error, Ecto.Changeset.t()}
   def update_account(%Account{} = account, attrs) do
     account
     |> Account.changeset(attrs)
@@ -262,6 +280,7 @@ defmodule Koins.Brokerage do
       {:error, %Ecto.Changeset{}}
 
   """
+  @spec delete_account(Account.t()) :: {:ok, Account.t()}
   def delete_account(%Account{} = account) do
     Repo.delete(account)
   end
@@ -275,6 +294,8 @@ defmodule Koins.Brokerage do
       %Ecto.Changeset{data: %Account{}}
 
   """
+  @spec change_account(Account.t()) :: Ecto.Changeset.t()
+  @spec change_account(Account.t(), map()) :: Ecto.Changeset.t()
   def change_account(%Account{} = account, attrs \\ %{}) do
     Account.changeset(account, attrs)
   end

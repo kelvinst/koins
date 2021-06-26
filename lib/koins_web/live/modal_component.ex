@@ -1,4 +1,6 @@
 defmodule KoinsWeb.ModalComponent do
+  @moduledoc false
+
   use KoinsWeb, :live_component
 
   @impl true

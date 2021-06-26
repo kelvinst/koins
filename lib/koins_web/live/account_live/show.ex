@@ -1,4 +1,6 @@
 defmodule KoinsWeb.AccountLive.Show do
+  @moduledoc false
+
   use KoinsWeb, :live_view
 
   alias Koins.Brokerage

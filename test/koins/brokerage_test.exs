@@ -10,7 +10,7 @@ defmodule Koins.BrokerageTest do
     @update_attrs %{amount: 43, notes: "some updated notes"}
     @invalid_attrs %{amount: nil, notes: nil}
 
-    def put_assocs(default, attrs) do
+    defp put_assocs(default, attrs) do
       account = account_fixture()
 
       attrs
@@ -18,10 +18,10 @@ defmodule Koins.BrokerageTest do
       |> Map.put(:account_id, account.id)
     end
 
-    def valid_attrs(attrs \\ %{}), do: put_assocs(@valid_attrs, attrs)
-    def update_attrs(attrs \\ %{}), do: put_assocs(@update_attrs, attrs)
+    defp valid_attrs(attrs \\ %{}), do: put_assocs(@valid_attrs, attrs)
+    defp update_attrs(attrs \\ %{}), do: put_assocs(@update_attrs, attrs)
 
-    def transaction_fixture(attrs \\ %{}) do
+    defp transaction_fixture(attrs \\ %{}) do
       {:ok, transaction} =
         attrs
         |> valid_attrs()
@@ -89,7 +89,7 @@ defmodule Koins.BrokerageTest do
     @update_attrs %{name: "some updated name"}
     @invalid_attrs %{name: nil}
 
-    def account_fixture(attrs \\ %{}) do
+    defp account_fixture(attrs \\ %{}) do
       {:ok, account} =
         attrs
         |> Enum.into(@valid_attrs)

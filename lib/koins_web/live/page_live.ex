@@ -1,4 +1,6 @@
 defmodule KoinsWeb.PageLive do
+  @moduledoc false
+
   use KoinsWeb, :live_view
 
   @impl true
