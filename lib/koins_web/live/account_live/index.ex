@@ -6,12 +6,12 @@ defmodule KoinsWeb.AccountLive.Index do
   alias Koins.Brokerage
   alias Koins.Brokerage.Account
 
-  @impl true
+  @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
     {:ok, assign(socket, :accounts, list_accounts())}
   end
 
-  @impl true
+  @impl Phoenix.LiveView
   def handle_params(params, _url, socket) do
     {:noreply, apply_action(socket, socket.assigns.live_action, params)}
   end
@@ -34,7 +34,7 @@ defmodule KoinsWeb.AccountLive.Index do
     |> assign(:account, nil)
   end
 
-  @impl true
+  @impl Phoenix.LiveView
   def handle_event("delete", %{"id" => id}, socket) do
     account = Brokerage.get_account!(id)
     {:ok, _} = Brokerage.delete_account(account)

@@ -5,7 +5,7 @@ defmodule KoinsWeb.AccountLive.FormComponent do
 
   alias Koins.Brokerage
 
-  @impl true
+  @impl Phoenix.LiveComponent
   def update(%{account: account} = assigns, socket) do
     changeset = Brokerage.change_account(account)
 
@@ -15,7 +15,7 @@ defmodule KoinsWeb.AccountLive.FormComponent do
      |> assign(:changeset, changeset)}
   end
 
-  @impl true
+  @impl Phoenix.LiveComponent
   def handle_event("validate", %{"account" => account_params}, socket) do
     changeset =
       socket.assigns.account

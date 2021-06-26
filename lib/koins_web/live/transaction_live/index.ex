@@ -6,7 +6,7 @@ defmodule KoinsWeb.TransactionLive.Index do
   alias Koins.Brokerage
   alias Koins.Brokerage.Transaction
 
-  @impl true
+  @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
     Phoenix.PubSub.subscribe(Koins.PubSub, "transactions")
 
@@ -16,7 +16,7 @@ defmodule KoinsWeb.TransactionLive.Index do
      |> assign(:balance, balance())}
   end
 
-  @impl true
+  @impl Phoenix.LiveView
   def handle_params(params, _url, socket) do
     {:noreply, apply_action(socket, socket.assigns.live_action, params)}
   end
@@ -39,7 +39,7 @@ defmodule KoinsWeb.TransactionLive.Index do
     |> assign(:transaction, nil)
   end
 
-  @impl true
+  @impl Phoenix.LiveView
   def handle_event("delete", %{"id" => id}, socket) do
     transaction = Brokerage.get_transaction!(id)
     {:ok, _} = Brokerage.delete_transaction(transaction)
@@ -47,7 +47,7 @@ defmodule KoinsWeb.TransactionLive.Index do
     {:noreply, assign(socket, :transactions, list_transactions())}
   end
 
-  @impl true
+  @impl Phoenix.LiveView
   def handle_info({:created, transaction, _}, socket) do
     {:noreply,
      socket

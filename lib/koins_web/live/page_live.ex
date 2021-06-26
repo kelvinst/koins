@@ -3,17 +3,17 @@ defmodule KoinsWeb.PageLive do
 
   use KoinsWeb, :live_view
 
-  @impl true
+  @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
     {:ok, assign(socket, query: "", results: %{})}
   end
 
-  @impl true
+  @impl Phoenix.LiveView
   def handle_event("suggest", %{"q" => query}, socket) do
     {:noreply, assign(socket, results: search(query), query: query)}
   end
 
-  @impl true
+  @impl Phoenix.LiveView
   def handle_event("search", %{"q" => query}, socket) do
     case search(query) do
       %{^query => vsn} ->

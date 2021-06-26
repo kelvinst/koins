@@ -159,10 +159,10 @@
         #
         {Credo.Check.Consistency.MultiAliasImportRequireUse, []},
         {Credo.Check.Consistency.UnusedVariableNames, []},
-        {Credo.Check.Design.DuplicatedCode, false},
+        {Credo.Check.Design.DuplicatedCode, []},
         {Credo.Check.Readability.AliasAs, false},
-        {Credo.Check.Readability.BlockPipe, false},
-        {Credo.Check.Readability.ImplTrue, false},
+        {Credo.Check.Readability.BlockPipe, []},
+        {Credo.Check.Readability.ImplTrue, []},
         {Credo.Check.Readability.MultiAlias, false},
         {Credo.Check.Readability.SeparateAliasRequire, false},
         {Credo.Check.Readability.SinglePipe, false},
