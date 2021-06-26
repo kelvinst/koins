@@ -10,8 +10,7 @@ defmodule KoinsWeb.TransactionLiveTest do
   @invalid_attrs %{amount: nil, notes: nil}
 
   defp put_assocs(default, account) do
-    default
-    |> Map.put(:account_id, account.id)
+    Map.put(default, :account_id, account.id)
   end
 
   defp create_attrs(account), do: put_assocs(@create_attrs, account)

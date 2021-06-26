@@ -1,3 +1,4 @@
+# credo:disable-for-this-file Credo.Check.Refactor.ModuleDependencies
 defmodule KoinsWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
@@ -67,6 +68,8 @@ defmodule KoinsWeb do
 
       import KoinsWeb.ErrorHelpers
       import KoinsWeb.Gettext
+
+      # credo:disable-for-next-line Credo.Check.Readability.AliasAs
       alias KoinsWeb.Router.Helpers, as: Routes
     end
   end

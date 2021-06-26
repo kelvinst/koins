@@ -26,6 +26,7 @@ defmodule KoinsWeb.ConnCase do
       import Phoenix.ConnTest
       import KoinsWeb.ConnCase
 
+      # credo:disable-for-next-line Credo.Check.Readability.AliasAs
       alias KoinsWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing

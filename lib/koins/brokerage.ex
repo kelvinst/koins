@@ -4,9 +4,10 @@ defmodule Koins.Brokerage do
   """
 
   import Ecto.Query, warn: false
-  alias Koins.Repo
 
+  alias Koins.Brokerage.Account
   alias Koins.Brokerage.Transaction
+  alias Koins.Repo
 
   @doc """
   Returns the list of transactions.
@@ -165,8 +166,6 @@ defmodule Koins.Brokerage do
   defp broadcast(transaction, action, extra_data \\ nil) do
     Phoenix.PubSub.broadcast(Koins.PubSub, "transactions", {action, transaction, extra_data})
   end
-
-  alias Koins.Brokerage.Account
 
   @doc """
   Returns the list of accounts.
