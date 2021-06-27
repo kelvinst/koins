@@ -9,20 +9,19 @@ defmodule KoinsWeb.TransactionLiveTest do
   @update_attrs %{amount: 43, notes: "some updated notes"}
   @invalid_attrs %{amount: nil, notes: nil}
 
-  def put_assocs(default, account) do
-    default
-    |> Map.put(:account_id, account.id)
+  defp put_assocs(default, account) do
+    Map.put(default, :account_id, account.id)
   end
 
-  def create_attrs(account), do: put_assocs(@create_attrs, account)
-  def update_attrs(account), do: put_assocs(@update_attrs, account)
+  defp create_attrs(account), do: put_assocs(@create_attrs, account)
+  defp update_attrs(account), do: put_assocs(@update_attrs, account)
 
   defp fixture(:transaction, account) do
     {:ok, transaction} = Brokerage.create_transaction(create_attrs(account))
     transaction
   end
 
-  defp create_transaction(_) do
+  defp create_transaction(_tags) do
     {:ok, account} = Brokerage.create_account(%{name: "name"})
     transaction = fixture(:transaction, account)
     %{account: account, transaction: transaction}

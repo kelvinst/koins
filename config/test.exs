@@ -20,3 +20,6 @@ config :koins, KoinsWeb.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
+
+# Enables live dashboard for test
+config :phoenix, :live_dashboard, true

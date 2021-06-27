@@ -17,6 +17,8 @@ defmodule KoinsWeb.ConnCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       # Import conveniences for testing with connections
@@ -24,6 +26,7 @@ defmodule KoinsWeb.ConnCase do
       import Phoenix.ConnTest
       import KoinsWeb.ConnCase
 
+      # credo:disable-for-next-line Credo.Check.Readability.AliasAs
       alias KoinsWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
@@ -32,10 +35,10 @@ defmodule KoinsWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Koins.Repo)
+    :ok = Sandbox.checkout(Koins.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Koins.Repo, {:shared, self()})
+      Sandbox.mode(Koins.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

@@ -1,3 +1,4 @@
+# credo:disable-for-this-file Credo.Check.Refactor.ModuleDependencies
 defmodule KoinsWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
@@ -17,6 +18,7 @@ defmodule KoinsWeb do
   and import those modules here.
   """
 
+  @spec view() :: tuple()
   def view do
     quote do
       use Phoenix.View,
@@ -32,6 +34,7 @@ defmodule KoinsWeb do
     end
   end
 
+  @spec live_view() :: tuple()
   def live_view do
     quote do
       use Phoenix.LiveView,
@@ -41,6 +44,7 @@ defmodule KoinsWeb do
     end
   end
 
+  @spec live_component() :: tuple()
   def live_component do
     quote do
       use Phoenix.LiveComponent
@@ -49,6 +53,7 @@ defmodule KoinsWeb do
     end
   end
 
+  @spec view_helpers() :: tuple()
   defp view_helpers do
     quote do
       # Use all HTML functionality (forms, tags, etc)
@@ -63,6 +68,8 @@ defmodule KoinsWeb do
 
       import KoinsWeb.ErrorHelpers
       import KoinsWeb.Gettext
+
+      # credo:disable-for-next-line Credo.Check.Readability.AliasAs
       alias KoinsWeb.Router.Helpers, as: Routes
     end
   end

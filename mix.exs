@@ -12,7 +12,15 @@ defmodule Koins.MixProject do
       aliases: aliases(),
       deps: deps(),
       preferred_cli_env: [muzak: :test],
-      test_coverage: [summary: [threshold: 80]]
+      test_coverage: [summary: [threshold: 80]],
+      dialyzer: dialyzer()
+    ]
+  end
+
+  defp dialyzer do
+    [
+      plt_core_path: "priv/plts",
+      plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
     ]
   end
 
@@ -50,7 +58,11 @@ defmodule Koins.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:money, "~> 1.4"},
-      {:muzak, "~> 1.1", only: :test}
+      {:muzak, "~> 1.1", only: :test},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
+      {:ex_doc, "~> 0.24", only: :dev, runtime: false},
+      {:mix_test_watch, "~> 1.0", only: :dev, runtime: false}
     ]
   end
 

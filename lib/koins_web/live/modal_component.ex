@@ -1,7 +1,9 @@
 defmodule KoinsWeb.ModalComponent do
+  @moduledoc false
+
   use KoinsWeb, :live_component
 
-  @impl true
+  @impl Phoenix.LiveComponent
   def render(assigns) do
     ~L"""
     <div id="<%= @id %>" class="phx-modal"
@@ -19,8 +21,8 @@ defmodule KoinsWeb.ModalComponent do
     """
   end
 
-  @impl true
-  def handle_event("close", _, socket) do
+  @impl Phoenix.LiveComponent
+  def handle_event("close", _params, socket) do
     {:noreply, push_patch(socket, to: socket.assigns.return_to)}
   end
 end

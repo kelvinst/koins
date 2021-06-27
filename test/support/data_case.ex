@@ -16,6 +16,8 @@ defmodule Koins.DataCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       alias Koins.Repo
@@ -28,10 +30,10 @@ defmodule Koins.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Koins.Repo)
+    :ok = Sandbox.checkout(Koins.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Koins.Repo, {:shared, self()})
+      Sandbox.mode(Koins.Repo, {:shared, self()})
     end
 
     :ok
@@ -45,9 +47,10 @@ defmodule Koins.DataCase do
       assert %{password: ["password is too short"]} = errors_on(changeset)
 
   """
+  @spec errors_on(Ecto.Changeset.t()) :: map()
   def errors_on(changeset) do
     Ecto.Changeset.traverse_errors(changeset, fn {message, opts} ->
-      Regex.replace(~r"%{(\w+)}", message, fn _, key ->
+      Regex.replace(~r"%{(\w+)}", message, fn _match, key ->
         opts |> Keyword.get(String.to_existing_atom(key), key) |> to_string()
       end)
     end)

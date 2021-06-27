@@ -14,7 +14,7 @@ defmodule KoinsWeb.AccountLiveTest do
     account
   end
 
-  defp create_account(_) do
+  defp create_account(_tags) do
     account = fixture(:account)
     %{account: account}
   end
