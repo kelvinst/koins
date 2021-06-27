@@ -50,7 +50,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: priv/plts
-        key: ${{ runner.os }}-dialyzer-${{ hashFiles('**/mix.lock') }}
+        key: ${{ runner.os }}-dialyzer-v1-${{ hashFiles('**/mix.lock') }}
         restore-keys: ${{ runner.os }}-dialyzer-
     - name: Run dialyzer
       run: mix dialyzer
