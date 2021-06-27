@@ -3,6 +3,9 @@ defmodule KoinsWeb.LiveHelpers do
 
   import Phoenix.LiveView.Helpers
 
+  alias Ecto.Changeset
+  alias Koins.Brokerage.Transaction
+
   @doc """
   Renders a component inside the `KoinsWeb.ModalComponent` component.
 
@@ -30,18 +33,18 @@ defmodule KoinsWeb.LiveHelpers do
 
   ## Examples
 
-      iex> changeset = %Ecto.Changeset{changes: %{amount: %Money{amount: 100}}}
+      iex> changeset = Transaction.changeset(%Transaction{}, %{amount: 100})
       iex> LiveHelpers.money_value(changeset, :amount)
       "1.00"
 
   """
-  @spec money_value(Ecto.Changeset.t(), atom()) :: String.t()
+  @spec money_value(Changeset.t(), atom()) :: String.t()
   def money_value(changeset, field) do
     changeset
-    |> Ecto.Changeset.get_field(field)
+    |> Changeset.get_field(field)
     |> money_value()
   end
 
   defp money_value(nil), do: nil
-  defp money_value(value), do: Money.to_string(value, symbol: false)
+  defp money_value(%Money{} = value), do: Money.to_string(value, symbol: false)
 end
