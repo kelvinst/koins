@@ -54,5 +54,7 @@ jobs:
         restore-keys: ${{ runner.os }}-dialyzer-
     - name: Run dialyzer
       run: mix dialyzer
+    - name: Check compilation warnings
+      run: mix compile --force --warnings-as-errors
     - name: Run tests (and coverage)
       run: mix test --cover
