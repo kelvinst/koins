@@ -4,7 +4,6 @@ defmodule KoinsWeb.LiveHelpers do
   import Phoenix.LiveView.Helpers
 
   alias Ecto.Changeset
-  alias Koins.Brokerage.Transaction
 
   @doc """
   Renders a component inside the `KoinsWeb.ModalComponent` component.
